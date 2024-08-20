@@ -6,7 +6,9 @@ class LikesController < ApplicationController
   def create
     @like = @post.likes.new(profile: current_user.profile)
 
-    unless @like.save
+    if @like.save
+      flash[:notice] = 'Post liked successfully!'
+    else
       flash[:alert] = 'Unable to like the post.'
     end
 
@@ -15,16 +17,18 @@ class LikesController < ApplicationController
 
   def destroy
     if @like&.destroy
-      redirect_back_or_to(root_path)
+      flash[:notice] = 'Post unliked successfully!'
     else
-      redirect_back_or_to(root_path, status: :unprocessable_entity, alert: 'Unable to unlike')
+      flash[:alert] = 'Unable to unlike the post.'
     end
+
+    redirect_back_or_to(root_path)
   end
 
   private
 
   def set_like
-    @like = @post.likes.find_by(profile: current_user.profile, post_id: params[:post_id])
+    @like = @post.likes.find_by(profile: current_user.profile)
   end
 
   def set_post
@@ -32,12 +36,12 @@ class LikesController < ApplicationController
   end
 
   def already_liked?
-    Like.where(profile: current_user.profile, post_id: params[:post_id]).exists?
+    @post.likes.exists?(profile: current_user.profile)
   end
 
   def check_already_liked
     if already_liked?
-      redirect_back_or_to(root_path, notice: 'Post is already liked')
+      redirect_back_or_to(root_path, notice: 'You have already liked this post.')
     end
   end
 end
