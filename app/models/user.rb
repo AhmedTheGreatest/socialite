@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one :profile
-  has_many :posts, dependent: :destroy
+  has_one :profile, dependent: :destroy
+  delegate :posts, to: :profile
+
+  def create_post(params)
+    profile.posts.new(params)
+  end
 end
