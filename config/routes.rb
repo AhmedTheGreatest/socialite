@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :posts
+  resources :posts do
+    post 'like', to: 'likes#create', as: 'like'
+    delete 'unlike', to: 'likes#destroy', as: 'unlike'
+  end
+
   resources :profiles, only: [:new, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
