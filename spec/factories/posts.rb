@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post do
-    body { "MyText" }
-    user { nil }
+    association :profile
+    body { Faker::Lorem.paragraph }
   end
 end
