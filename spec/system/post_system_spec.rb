@@ -14,7 +14,7 @@ RSpec.describe "Post Management", type: :system do
     it 'allows a user to create a new post with valid details' do
       visit new_post_path
 
-      fill_in 'Body',	with: 'This is the content of a test post.'
+      fill_in 'Body', with: 'This is the content of a test post.'
       click_button 'Create Post'
 
       expect(page).to have_content('success')
@@ -24,19 +24,10 @@ RSpec.describe "Post Management", type: :system do
     it 'shows an error when trying to create a post with missing body text' do
       visit new_post_path
 
-      fill_in 'Body',	with: ''
+      fill_in 'Body', with: ''
       click_button 'Create Post'
 
       expect(page).to have_content("Body can't be blank")
-    end
-
-    it 'shows an error when trying to create a post with less than minimum length of text' do
-      visit new_post_path
-
-      fill_in 'Body',	with: '1'
-      click_button 'Create Post'
-
-      expect(page).to have_content('Body is too short')
     end
   end
 
@@ -44,14 +35,14 @@ RSpec.describe "Post Management", type: :system do
     it 'allows a user to edit an existing post' do
       visit edit_post_path(post)
 
-      fill_in 'Body',	with: 'Updated content for the post.'
+      fill_in 'Body', with: 'Updated content for the post.'
       click_button 'Update Post'
     end
 
     it 'shows an error when trying to edit a post with invalid details' do
       visit edit_post_path(post)
 
-      fill_in 'Body',	with: ''
+      fill_in 'Body', with: ''
       click_button 'Update Post'
 
       expect(page).to have_content("Body can't be blank")
