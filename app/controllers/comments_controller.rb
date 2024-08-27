@@ -7,9 +7,9 @@ class CommentsController < ApplicationController
     @comment.profile = current_user.profile
 
     if @comment.save
-      flash[:notice] = 'Commented successfully!'
+      flash.now[:notice] = 'Commented successfully!'
     else
-      flash[:alert] = 'Unable to comment.'
+      flash.now[:alert] = 'Unable to comment.'
     end
 
     respond_to do |format|
@@ -20,9 +20,9 @@ class CommentsController < ApplicationController
 
   def destroy
     if @comment&.destroy
-      flash[:notice] = 'Comment sucessfully deleted!'
+      flash.now[:notice] = 'Comment sucessfully deleted!'
     else
-      flash[:alert] = 'Unable to delete the comment.'
+      flash.now[:alert] = 'Unable to delete the comment.'
     end
 
     respond_to do |format|
@@ -39,7 +39,7 @@ class CommentsController < ApplicationController
       render @comment
     else
       flash.now[:alert] = 'Unable to update the comment.'
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
