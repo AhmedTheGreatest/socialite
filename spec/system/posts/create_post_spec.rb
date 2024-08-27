@@ -5,7 +5,6 @@ RSpec.describe "Post Management", type: :system do
   let!(:profile) { create(:profile, user: user) }
 
   before do
-    driven_by(:rack_test)
     sign_in user
   end
 

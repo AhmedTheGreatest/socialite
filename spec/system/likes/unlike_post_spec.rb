@@ -6,7 +6,6 @@ RSpec.describe "Like Management", type: :system do
   let!(:post) { create(:post, profile: profile) }
 
   before do
-    driven_by(:rack_test)
     sign_in user
   end
 
