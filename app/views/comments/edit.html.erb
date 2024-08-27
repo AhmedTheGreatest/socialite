@@ -1,0 +1,14 @@
+<h1>Editing comment</h1>
+
+<%= turbo_frame_tag dom_id @comment do %>
+  <h4>Edit Comment</h4>
+  <%= render "form", post: @post, comment: @comment %>
+  <%= link_to "Cancel", @post %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Show this post", @post %> |
+  <%= link_to "Back to posts", posts_path %>
+</div>

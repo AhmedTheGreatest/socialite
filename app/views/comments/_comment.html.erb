@@ -1,8 +1,12 @@
-<div id="<%= dom_id comment %>">
-  <p>
-    <strong><%= comment.profile.name %></strong><br>
-    <%= comment.body %><br>
-    <small>At <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></small><br>
-    <%= button_to 'X', post_comment_path(comment.post, comment), method: :delete %>
-  </p>
-</div>
+<%= turbo_frame_tag dom_id(comment) do %>
+  <div id="<%= dom_id(comment) %>_container">
+    <p>
+      <strong><%= comment.profile.name %></strong><br>
+      <%= comment.body %><br>
+      <small>At <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
+      
+      <%= link_to 'Edit', edit_post_comment_path(comment.post, comment), data: { turbo_frame: dom_id(comment) } %> |
+      <%= link_to 'X', post_comment_path(comment.post, comment), data: { turbo_confirm: 'Are you sure?', turbo_method: :delete } %>
+    </p>
+  </div>
+<% end %>

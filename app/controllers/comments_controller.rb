@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_post
+  before_action :set_comment, only: [:destroy, :edit, :update]
 
   def create
     @comment = @post.comments.new(comment_params)
@@ -12,14 +13,12 @@ class CommentsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_back_or_to(root_path) }
       format.turbo_stream
+      format.html { redirect_back_or_to(@post) }
     end
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-
     if @comment&.destroy
       flash[:notice] = 'Comment sucessfully deleted!'
     else
@@ -27,23 +26,31 @@ class CommentsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_back_or_to(root_path) }
       format.turbo_stream
+      format.html { redirect_back_or_to(@post) }
     end
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
-
+    if @comment.update(comment_params)
+      flash.now[:notice] = 'Comment updated successfully!'
+      render @comment
+    else
+      flash.now[:alert] = 'Unable to update the comment.'
+      render :edit
+    end
   end
 
   private
 
   def set_post
     @post = Post.find(params[:post_id])
+  end
+
+  def set_comment
+    @comment = Comment.find(params[:id])
   end
 
   def comment_params

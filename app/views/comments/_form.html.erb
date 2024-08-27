@@ -1,4 +1,4 @@
-<%= form_with(model: comment, url: post_comments_path(post)) do |form| %>
+<%= form_with(model: [post, comment]) do |form| %>
   <% if comment.errors.any? %>
     <div style="color: red">
       <ul>
@@ -10,7 +10,7 @@
   <% end %>
 
   <div>
-    <%= form.label :body, 'Add a Comment' %> <br>
+    <%= form.label :body, 'Comment Body', class: 'hidden' %>
     <%= form.text_field :body, placeholder: 'Type your comment' %>
     <%= form.submit %>
   </div>

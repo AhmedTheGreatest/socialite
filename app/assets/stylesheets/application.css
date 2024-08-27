@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+
+/* Temporary */
+.hidden {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+}
