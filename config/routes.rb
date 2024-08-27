@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     post 'like', to: 'likes#create', as: 'like'
     delete 'unlike', to: 'likes#destroy', as: 'unlike'
 
-    resources :comments, only: :create
+    resources :comments, only: [:create, :destroy, :edit, :update]
   end
 
   resources :profiles, only: [:new, :create]

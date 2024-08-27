@@ -3,8 +3,6 @@
     <strong><%= comment.profile.name %></strong><br>
     <%= comment.body %><br>
     <small>At <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></small><br>
-    <div class="controls">
-      <!-- Additional controls like edit or delete can go here -->
-    </div>
+    <%= button_to 'X', post_comment_path(comment.post, comment), method: :delete %>
   </p>
 </div>
