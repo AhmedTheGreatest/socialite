@@ -1,0 +1,17 @@
+<%= form_with(model: comment, url: post_comments_path(post)) do |form| %>
+  <% if comment.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :body, 'Add a Comment' %> <br>
+    <%= form.text_field :body, placeholder: 'Type your comment' %>
+    <%= form.submit %>
+  </div>
+<% end %>

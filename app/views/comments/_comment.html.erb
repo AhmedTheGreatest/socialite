@@ -1,0 +1,10 @@
+<div id="<%= dom_id comment %>">
+  <p>
+    <strong><%= comment.profile.name %></strong><br>
+    <%= comment.body %><br>
+    <small>At <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></small><br>
+    <div class="controls">
+      <!-- Additional controls like edit or delete can go here -->
+    </div>
+  </p>
+</div>
