@@ -14,11 +14,7 @@ class LikesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_back_or_to(root_path) }
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          @post, partial: 'posts/post', locals: { post: @post }
-        )
-      end
+      format.turbo_stream
     end
   end
 
@@ -31,11 +27,7 @@ class LikesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_back_or_to(root_path) }
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          @post, partial: 'posts/post', locals: { post: @post }
-        )
-      end
+      format.turbo_stream
     end
   end
 
