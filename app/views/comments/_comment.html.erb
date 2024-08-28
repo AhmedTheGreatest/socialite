@@ -5,8 +5,10 @@
       <%= comment.body %><br>
       <small>At <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
       
-      <%= link_to 'Edit', edit_post_comment_path(comment.post, comment), data: { turbo_frame: dom_id(comment) } %> |
-      <%= link_to 'X', post_comment_path(comment.post, comment), data: { turbo_confirm: 'Are you sure?', turbo_method: :delete } %>
+      <% if comment.profile == current_user.profile %>
+        <%= link_to 'Edit', edit_post_comment_path(comment.post, comment), data: { turbo_frame: dom_id(comment) } %> |
+        <%= link_to 'X', post_comment_path(comment.post, comment), data: { turbo_confirm: 'Are you sure?', turbo_method: :delete } %>
+      <% end %>
     </p>
   </div>
 <% end %>

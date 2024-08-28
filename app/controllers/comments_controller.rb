@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_post
-  before_action :set_comment, only: [:destroy, :edit, :update]
+  before_action :set_comment, only: %i[destroy edit update]
+  before_action :authorize_creator, only: %i[destroy edit update]
 
   def create
     @comment = @post.comments.new(comment_params)
@@ -47,6 +48,10 @@ class CommentsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:post_id])
+  end
+
+  def authorize_creator
+    redirect_back_or_to(@post) unless @comment.profile == current_user.profile
   end
 
   def set_comment

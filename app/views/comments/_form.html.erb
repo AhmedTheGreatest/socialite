@@ -11,7 +11,7 @@
 
   <div>
     <%= form.label :body, 'Comment Body', class: 'hidden' %>
-    <%= form.text_field :body, placeholder: 'Type your comment' %>
+    <%= form.text_field :body, placeholder: 'Type your comment', required: true %>
     <%= form.submit %>
   </div>
 <% end %>
