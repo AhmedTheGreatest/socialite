@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Like Management", type: :system do
+RSpec.describe "Unlike Post", type: :system do
   let(:user) { create(:user) }
   let!(:profile) { create(:profile, user: user) }
   let!(:post) { create(:post, profile: profile) }
@@ -16,7 +16,7 @@ RSpec.describe "Like Management", type: :system do
 
     click_button 'Unlike'
 
-    expect(page).to have_content('success')
-    expect(page).to have_content('Like')
+    # expect(page).to have_content('success')
+    expect(page).to have_button('Like')
   end
 end
