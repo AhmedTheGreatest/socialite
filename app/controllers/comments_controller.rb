@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   def destroy
     if @comment&.destroy
-      flash.now[:notice] = 'Comment sucessfully deleted!'
+      flash.now[:notice] = 'Comment successfully deleted!'
     else
       flash.now[:alert] = 'Unable to delete the comment.'
     end
