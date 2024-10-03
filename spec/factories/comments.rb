@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :comment do
     association :profile
     association :post
-    body { "MyText" }
+    body { Faker::Lorem.sentence }
   end
 end
