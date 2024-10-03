@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>">
   <p>
-    <strong><%= post.profile.name %></strong><br>
+    <strong><%= link_to post.profile.name, profile_path(post.profile) %></strong><br>
     <%= post.body %><br>
     <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %>
 

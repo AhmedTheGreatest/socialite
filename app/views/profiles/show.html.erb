@@ -1,0 +1,12 @@
+<div>
+  <h1 class="profile_name"><%= @profile.name %>'s Profile</h1>
+  <!-- Add Profile Bio and Profile Picture -->
+
+
+  <div class="posts_container">
+    <h2><%= @profile.name %>'s Posts</h2> 
+    <div id="user_posts">
+      <%= render @posts %>
+    </div>
+  </div>
+</div>
