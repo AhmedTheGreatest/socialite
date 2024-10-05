@@ -80,4 +80,20 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :cuprite
   end
+
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+    provider: 'github',
+    uid: '123545',
+    info: {
+      email: 'test@example.com',
+      name: 'Test User',
+      nickname: 'testuser',
+      image: 'http://example.com/image.png'
+    },
+    credentials: {
+      token: 'mock_token',
+      expires_at: Time.now + 1.week
+    }
+  })
 end

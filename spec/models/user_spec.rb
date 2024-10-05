@@ -33,4 +33,26 @@ RSpec.describe User, type: :model do
       expect(post).to be_new_record
     end
   end
+
+  describe '.from_omniauth' do
+    it 'creates a new user if they do not exist' do
+      auth = OmniAuth.config.mock_auth[:github]
+      user = User.from_omniauth(auth)
+
+      expect(user).to be_persisted
+      expect(user.email).to eq('test@example.com')
+      expect(user.provider).to eq('github')
+      expect(user.uid).to eq('123545')
+    end
+
+    it 'returns an existing user if they do exist' do
+      auth = OmniAuth.config.mock_auth[:github]
+      User.create!(email: 'test@example.com', provider: 'github', uid: '123545', password: 'password')
+
+      user = User.from_omniauth(auth)
+
+      expect(user).to be_persisted
+      expect(user.email).to eq('test@example.com')
+    end
+  end
 end
