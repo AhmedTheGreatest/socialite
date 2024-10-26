@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
   skip_before_action :check_profile!, except: [:show, :index]
+  before_action :set_profile, only: [:show, :edit, :update]
+  before_action :authorize_owner!, only: [:edit, :update]
 
   def new
     @profile = current_user.build_profile
@@ -16,8 +18,17 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @profile.update(profile_params)
+      redirect_to @profile, notice: "Profile updated successfully."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def show
-    @profile = Profile.find(params[:id])
     @posts = @profile.posts
   end
 
@@ -26,6 +37,16 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def set_profile
+    @profile = Profile.find(params[:id])
+  end
+
+  def authorize_owner!
+    unless @profile.user == current_user
+      redirect_to @profile, alert: "You are not authorized to edit or update this profile."
+    end
+  end
 
   def profile_params
     params.require(:profile).permit(:name)
