@@ -1,5 +1,6 @@
 <div id="<%= dom_id post %>">
   <p>
+    <%= image_tag post.profile.avatar_url, width: '20rem', style: 'border-radius: 10px' %>
     <strong><%= link_to post.profile.name, profile_path(post.profile) %></strong><br>
     <%= post.body %><br>
     <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %>
