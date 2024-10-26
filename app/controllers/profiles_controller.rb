@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  skip_before_action :check_profile!
+  skip_before_action :check_profile!, except: [:show, :index]
 
   def new
     @profile = current_user.build_profile

@@ -9,6 +9,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
+      # Automatically create Profile for OmniAuth users
+      create_profile(@user, request.env["omniauth.auth"])
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "GitHub") if is_navigational_format?
     else
@@ -36,4 +38,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def after_omniauth_failure_path_for(scope)
   #   super(scope)
   # end
+
+  private
+
+  def create_profile(user, auth)
+    profile = user.build_profile
+    profile.name = auth.info.nickname || auth.info.name
+    profile.save
+  end
 end
