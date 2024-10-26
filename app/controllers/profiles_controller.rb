@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = current_user.build_profile(profile_params)
+    @profile.avatar_url = gravatar_url(current_user.email)
 
     if @profile.save
       redirect_to root_path, notice: 'Account successfully created!'
@@ -28,5 +29,10 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:name)
+  end
+
+  def gravatar_url(email, size = 200)
+    email_hash = Digest::MD5.hexdigest(email.downcase)
+    "https://www.gravatar.com/avatar/#{email_hash}?s=#{size}&d=identicon"
   end
 end

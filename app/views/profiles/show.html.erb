@@ -1,10 +1,11 @@
 <div>
-  <h1 class="profile_name"><%= @profile.name %>'s Profile</h1>
+  <%= image_tag @profile.avatar_url, width: '100rem', style: 'border-radius: 10px' %>
+  <h1 class="profile_name"><%= @profile.name %></h1>
   <!-- Add Profile Bio and Profile Picture -->
 
 
   <div class="posts_container">
-    <h2><%= @profile.name %>'s Posts</h2> 
+    <h3><%= @profile.name %>'s Posts</h3> 
     <div id="user_posts">
       <%= render @posts %>
     </div>

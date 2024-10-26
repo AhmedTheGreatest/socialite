@@ -44,6 +44,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def create_profile(user, auth)
     profile = user.build_profile
     profile.name = auth.info.nickname || auth.info.name
+    profile.avatar_url = auth.info.image
     profile.save
   end
 end
