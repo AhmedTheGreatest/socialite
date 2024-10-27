@@ -22,6 +22,10 @@ class Profile < ApplicationRecord
     followers.where(follows: { accepted: true })  # Only get accepted follows
   end
 
+  def pending_followers
+    followers.where(follows: { accepted: false })
+  end
+
   def send_follow_request(other_profile)
     return if other_profile == self
     follows.create(following: other_profile) unless following?(other_profile)
@@ -30,6 +34,11 @@ class Profile < ApplicationRecord
   def accept_follow_request(profile)
     follow = reverse_follows.find_by(follower: profile)
     follow&.accept
+  end
+
+  def reject_follow_request(profile)
+    follow = reverse_follows.find_by(follower: profile)
+    follow&.destroy
   end
 
   def unfollow(profile)

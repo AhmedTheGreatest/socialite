@@ -2,6 +2,26 @@
   <p>
     <%= image_tag profile.avatar_url, width: '20rem', style: 'border-radius: 10px' %>
     <strong><%= profile.name %></strong>
-    <button>Follow</button> <!-- Work In Progress; Not Implemented -->
+
+    <% unless current_profile == profile %>
+      <%# GROUP 1%>
+      <% if current_profile.following?(profile) %>
+        <% if profile.pending_followers.include?(current_profile) %>
+          PENDING
+          <%= button_to "Cancel", unfollow_profile_path(profile), method: :delete %>
+        <% else %>
+          <%= button_to "Unfollow", unfollow_profile_path(profile), method: :delete %>
+        <% end %>
+      <% else %>
+        <%= button_to "Follow", follow_profile_path(profile), method: :post %>
+      <% end %>
+
+      <%# GROUP 2%>
+      <% if current_profile.pending_followers.include?(profile) %>
+        <%= button_to "Accept", accept_follow_profile_path(profile), method: :post %>
+        <%= button_to "Reject", reject_follow_profile_path(profile), method: :delete %>
+      <% end %>
+
+    <% end %>
   </p>
 </div>
