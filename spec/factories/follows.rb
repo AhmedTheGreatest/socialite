@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :follow do
-    follower { nil }
-    following { nil }
+    association :follower
+    association :following
     accepted { false }
   end
 end

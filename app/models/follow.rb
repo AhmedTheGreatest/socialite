@@ -2,7 +2,8 @@ class Follow < ApplicationRecord
   belongs_to :follower, class_name: 'Profile'
   belongs_to :following, class_name: 'Profile'
 
-  validates :follower_id, uniqueness: { scope: :following_id }
+  validates :follower, :following, presence: true
+  validates :follower_id, uniqueness: { scope: :following_id, message: "You are already following this user" }
   validate :cannot_follow_self
 
   scope :accepted, -> { where(accepted: true) }
