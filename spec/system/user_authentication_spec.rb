@@ -7,6 +7,6 @@ RSpec.describe 'User Authentication', type: :system do
     click_button 'Sign in with GitHub' # Adjust this to match your link
 
     expect(page).to have_content('Successfully authenticated')
-    expect(page).to have_current_path(new_profile_path) # Adjust according to your root path
+    expect(page).to have_current_path(root_path) # Adjust according to your root path
   end
 end
