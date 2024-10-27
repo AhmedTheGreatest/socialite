@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_26_084838) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_27_135638) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_26_084838) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["profile_id"], name: "index_comments_on_profile_id"
+  end
+
+  create_table "follows", force: :cascade do |t|
+    t.boolean "accepted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "follower_id", null: false
+    t.bigint "following_id", null: false
+    t.index ["follower_id"], name: "index_follows_on_follower_id"
+    t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -66,6 +76,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_26_084838) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "profiles"
+  add_foreign_key "follows", "profiles", column: "follower_id"
+  add_foreign_key "follows", "profiles", column: "following_id"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "profiles"
   add_foreign_key "posts", "profiles"
