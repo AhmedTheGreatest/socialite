@@ -1,0 +1,24 @@
+<% unless current_profile == profile %>
+  <%# GROUP 1%>
+  <% if current_profile.following?(profile) %>
+    <% if profile.pending_followers.include?(current_profile) %>
+      PENDING
+      <%= button_to "Cancel", unfollow_profile_path(profile), method: :delete %>
+    <% else %>
+      <%= button_to "Unfollow", unfollow_profile_path(profile), method: :delete %>
+    <% end %>
+  <% else %>
+    <% if current_profile.followed_by?(profile) %>
+      <%= button_to "Follow back", follow_profile_path(profile), method: :post %>
+    <% else %>
+      <%= button_to "Follow", follow_profile_path(profile), method: :post %>
+    <% end %>
+  <% end %>
+
+  <%# GROUP 2%>
+  <% if current_profile.pending_followers.include?(profile) %>
+    <%= button_to "Accept", accept_follow_profile_path(profile), method: :post %>
+    <%= button_to "Reject", reject_follow_profile_path(profile), method: :delete %>
+  <% end %>
+
+<% end %>

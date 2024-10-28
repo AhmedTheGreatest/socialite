@@ -2,6 +2,7 @@
   <%= image_tag @profile.avatar_url, width: '100rem', style: 'border-radius: 10px' %>
   <h1 class="profile_name"><%= @profile.name %></h1>
   <!-- Add Profile Bio and Profile Picture -->
+  <%= render 'follow_button', profile: @profile %>
 
 
   <div class="posts_container">
