@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
 
     if @profile.save
       redirect_to root_path, notice: 'Account successfully created!'
+      UserMailer.welcome_email(current_user).deliver_later
     else
       render :new, status: :unprocessable_entity
     end
