@@ -1,8 +1,6 @@
-<%= form_with(model: post) do |form| %>
+<%= form_with(model: post, html: { multipart: true }) do |form| %>
   <% if post.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
         <% post.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -14,6 +12,11 @@
   <div>
     <%= form.label :body, style: "display: block" %>
     <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.label :images, "Upload Images", style: "display: block" %>
+    <%= form.file_field :images, multiple: true, accept: 'image/png,image/jpg,image/jpeg' %>
   </div>
 
   <div>

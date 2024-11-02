@@ -5,7 +5,13 @@ class Post < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
-  has_many_attached :images
+  has_many_attached :images do |attachable|
+    attachable.variant :small, resize_to_limit: [200, 200]
+  end
+
+  validates :images, content_type: { in: %w[image/png image/jpg image/jpeg], message: 'must be a PNG or JPG'},
+    size: {less_than: 5.megabytes, message: 'should be less than 5 MB'}
+
 
   validates :profile, presence: true
   validates :body, allow_blank: true, length: { minimum: 2, maximum: 2000 }
