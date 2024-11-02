@@ -34,7 +34,8 @@ RSpec.describe Post, type: :model do
 
       it 'is invalid with neither body nor images present' do
         post = Post.new(profile: profile)
-        expect(post).to be_invalid
+        expect(post).to_not be_valid
+        expect(post.errors[:base]).to include("Post must have either text or images")
       end
     end
   end
