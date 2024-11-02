@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy, :edit, :update]
   end
 
+  resources :explore, only: :index
+
   resources :profiles, only: [:new, :create, :show, :index, :edit, :update] do
     member do
       post 'follow', to: 'follows#create', as: 'follow'
