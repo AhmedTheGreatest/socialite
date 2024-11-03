@@ -6,10 +6,10 @@ class LikesController < ApplicationController
   def create
     @like = @post.likes.new(profile: current_user.profile)
 
-    if @like.save
-      flash.now[:notice] = 'Post liked successfully!'
-    else
+    unless @like.save
       flash.now[:alert] = 'Unable to like the post.'
+    # else
+      # flash.now[:notice] = 'Post liked successfully!'
     end
 
     respond_to do |format|
@@ -19,10 +19,10 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    if @like&.destroy
-      flash.now[:notice] = 'Post unliked successfully!'
-    else
+    unless @like&.destroy
       flash.now[:alert] = 'Unable to unlike the post.'
+    # else
+      # flash.now[:notice] = 'Post unliked successfully!'
     end
 
     respond_to do |format|
