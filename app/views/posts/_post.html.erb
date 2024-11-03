@@ -1,4 +1,4 @@
-<div class="post" id="<%= dom_id post %>" >
+<div class="post" id="<%= dom_id post %>" data-controller="clickable-link" data-url="<%= post_path(post) %>" data-action="click->clickable-link#handleClick">
   <p>
     <div class="avatar_container">
       <%= image_tag post.profile.avatar_url, width: '20rem', style: 'border-radius: 10px' %>
@@ -23,7 +23,7 @@
       <% if post.likers.include?(current_user.profile) %>
         <%= button_to '👍🏻Unlike', post_unlike_path(post), method: :delete, class: 'btn btn--primary' %>
       <% else%>
-        <%= button_to '👍🏻Like', post_like_path(post), method: :post, class: 'btn btn--primary' %>
+        <%= button_to '👎🏻Like', post_like_path(post), method: :post, class: 'btn btn--primary' %>
       <% end %>
     </div>
   </p>

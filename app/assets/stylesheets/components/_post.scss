@@ -10,6 +10,7 @@
   box-shadow: var(--shadow-small);
   margin-bottom: var(--space-m);
   padding: var(--space-xs);
+  cursor: pointer;
 
   @include media(tabletAndUp) {
     padding: var(--space-xs) var(--space-m);
