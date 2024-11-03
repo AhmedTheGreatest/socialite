@@ -1,6 +1,6 @@
 <div id="<%= dom_id profile %>">
   <p>
-    <%= image_tag profile.avatar_url, width: '20rem', style: 'border-radius: 10px' %>
+    <%= image_tag profile.avatar_url, class: 'avatar avatar--large' %>
     <strong><%= profile.name %></strong>
 
     <%= render 'follow_button', profile: profile %>

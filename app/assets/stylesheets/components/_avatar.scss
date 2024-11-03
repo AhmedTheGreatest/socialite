@@ -1,0 +1,11 @@
+.avatar {
+  border-radius: 0.5rem;
+  aspect-ratio: 1 / 1;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  &--large {
+    width: 6rem;
+    height: 6rem;
+  }
+}

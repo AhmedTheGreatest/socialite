@@ -1,5 +1,5 @@
 <div>
-  <%= image_tag @profile.avatar_url, width: '100rem', style: 'border-radius: 10px' %>
+  <%= image_tag @profile.avatar_url, class: 'avatar avatar--large' %>
   <h1 class="profile_name"><%= @profile.name %></h1>
   <!-- Add Profile Bio and Profile Picture -->
   <%= render 'follow_button', profile: @profile %>

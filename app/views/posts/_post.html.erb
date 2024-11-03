@@ -1,7 +1,7 @@
 <div class="post" id="<%= dom_id post %>" data-controller="clickable-link" data-url="<%= post_path(post) %>" data-action="click->clickable-link#handleClick">
   <p>
     <div class="avatar_container">
-      <%= image_tag post.profile.avatar_url, width: '20rem', style: 'border-radius: 10px' %>
+      <%= image_tag post.profile.avatar_url, width: '20rem', class: 'avatar' %>
       <strong><%= link_to post.profile.name, profile_path(post.profile) %></strong>
     </div>
     
