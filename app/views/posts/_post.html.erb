@@ -1,7 +1,9 @@
 <div id="<%= dom_id post %>">
   <p>
-    <%= image_tag post.profile.avatar_url, width: '20rem', style: 'border-radius: 10px' %>
-    <strong><%= link_to post.profile.name, profile_path(post.profile) %></strong><br>
+    <div class="avatar_container">
+      <%= image_tag post.profile.avatar_url, width: '20rem', style: 'border-radius: 10px' %>
+      <strong><%= link_to post.profile.name, profile_path(post.profile) %></strong>
+    </div>
     
     <% if post.body.present? %>
       <%= post.body %><br>
@@ -19,9 +21,9 @@
 
     <div class="controls">
       <% if post.likers.include?(current_user.profile) %>
-        <%= button_to 'Unlike', post_unlike_path(post), method: :delete %>
+        <%= button_to 'Unlike', post_unlike_path(post), method: :delete, class: 'btn btn--primary' %>
       <% else%>
-        <%= button_to 'Like', post_like_path(post), method: :post %>
+        <%= button_to 'Like', post_like_path(post), method: :post, class: 'btn btn--primary' %>
       <% end %>
     </div>
   </p>
