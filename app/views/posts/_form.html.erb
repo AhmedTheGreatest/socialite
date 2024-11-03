@@ -1,4 +1,4 @@
-<%= form_with(model: post, html: { multipart: true }) do |form| %>
+<%= form_with(model: post, html: { multipart: true }, class: 'form') do |form| %>
   <% if post.errors.any? %>
     <div style="color: red">
       <ul>
@@ -9,17 +9,17 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form__group">
     <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, class: 'form__input' %>
+  </div>
+
+  <div class="form__group">
+    <%= form.label :images, "Images", style: "display: block" %>
+    <%= form.file_field :images, multiple: true, accept: 'image/png,image/jpg,image/jpeg', class: 'form__input' %>
   </div>
 
   <div>
-    <%= form.label :images, "Upload Images", style: "display: block" %>
-    <%= form.file_field :images, multiple: true, accept: 'image/png,image/jpg,image/jpeg' %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit nil, class: 'btn btn--primary' %>
   </div>
 <% end %>
