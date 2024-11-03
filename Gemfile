@@ -83,3 +83,5 @@ gem "devise", "~> 4.9"
 gem 'omniauth', '~> 2.0'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
+
+gem "cssbundling-rails", "~> 1.4"
