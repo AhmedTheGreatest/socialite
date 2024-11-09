@@ -2,8 +2,7 @@
   <%# GROUP 1%>
   <% if current_profile.following?(profile) %>
     <% if profile.pending_followers.include?(current_profile) %>
-      PENDING
-      <%= button_to "Cancel", unfollow_profile_path(profile), method: :delete %>
+      <%= button_to "Cancel Request", unfollow_profile_path(profile), method: :delete %>
     <% else %>
       <%= button_to "Unfollow", unfollow_profile_path(profile), method: :delete %>
     <% end %>

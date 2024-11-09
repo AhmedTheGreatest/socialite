@@ -2,11 +2,13 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-s);
-  justify-content: space-between;
+  justify-content: center;
   margin-top: var(--space-m);
   margin-bottom: var(--space-l);
+  display: flex;
 
   @include media(tabletAndUp) {
-    margin-bottom: var(--space-xl);
+    justify-content: space-between;
+    margin-bottom: var(--space-xl);    
   }
 }

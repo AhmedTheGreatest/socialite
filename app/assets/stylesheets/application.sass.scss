@@ -13,12 +13,16 @@
 @import "components/btn";
 @import "components/post";
 @import "components/avatar";
-// @import "components/error_message";
+@import "components/profile";
+@import "components/feed";
 @import "components/form";
 @import "components/comment_box";
+@import "components/profile_list_box";
 @import "components/hidden";
 
 // Layouts
 @import "layouts/container";
+@import "layouts/stack";
+@import "layouts/explore";
 @import "layouts/avatar_container";
 @import "layouts/header";

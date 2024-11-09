@@ -1,8 +1,10 @@
-<div id="<%= dom_id profile %>">
-  <p>
-    <%= image_tag profile.avatar_url, class: 'avatar avatar--large' %>
-    <strong><%= profile.name %></strong>
-
-    <%= render 'follow_button', profile: profile %>
-  </p>
+<div class="profile" id="<%= dom_id profile %>">
+    
+    <div class="profile__info">
+      <%= image_tag profile.avatar_url, class: 'avatar' %>
+      <span class="profile__name"><%= profile.name %></span>
+    </div>
+    <div class="profile__buttons">
+      <%= render 'shared/follow_button', profile: profile %>
+    </div>
 </div>

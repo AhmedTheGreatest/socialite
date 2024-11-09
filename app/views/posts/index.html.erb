@@ -1,9 +1,10 @@
-<h1>Your Feed</h1>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-  <% end %>
+<div id="feed">
+  <h1 class="feed__heading">Your Feed</h1>
+
+  <div class="feed__posts">
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New post", new_post_path %>

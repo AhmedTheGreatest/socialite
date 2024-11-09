@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy, :edit, :update]
   end
 
-  resources :explore, only: :index
+  get 'explore', to: 'explore#index', as: :explore
 
   resources :profiles, only: [:new, :create, :show, :index, :edit, :update] do
     member do

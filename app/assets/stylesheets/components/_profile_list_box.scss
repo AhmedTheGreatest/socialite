@@ -1,0 +1,15 @@
+.profile-list-box {
+  padding: var(--space-m);
+
+
+  &__heading {
+    margin-bottom: var(--space-s);
+  }
+
+  &__profiles {
+    padding: var(--space-m) var(--space-xs);
+    border-radius: var(--border-radius);
+    max-height: fit-content;
+    background-color: var(--color-light);
+  }
+}

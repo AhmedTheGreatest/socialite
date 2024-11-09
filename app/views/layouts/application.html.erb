@@ -16,10 +16,7 @@
     <%= render 'layouts/flash' %>
 
     <main class="container">
-      <div class="header">
-        <h1>Socialite</h1>
-        <%= link_to "New post", new_post_path, class: "btn btn--primary" %>
-      </div>
+      <%= render 'layouts/header' %>
 
       <%= yield %>
     </main>

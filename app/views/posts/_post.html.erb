@@ -17,7 +17,7 @@
       </div>
     <% end %>
     
-    <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %>
+    <span><em><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %></em></span>
 
     <div class="controls">
       <% if post.likers.include?(current_user.profile) %>

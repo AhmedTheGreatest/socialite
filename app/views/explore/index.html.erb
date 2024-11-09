@@ -1,12 +1,17 @@
-<h1>Explore</h1>
+<div class="explore">
+  <div class="feed">
+    <h1 class="feed__heading">Explore</h1>
+    <div class="feed__posts">
+      <% @posts.each do |post| %>
+        <%= render post %>
+      <% end %>
+    </div>
+  </div>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+  <div class="profile-list-box">
+    <h2 class="profile-list-box__heading">Other People</h2>
+    <div class="profile-list-box__profiles stack">
+      <%= render @profiles %>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New post", new_post_path %>
