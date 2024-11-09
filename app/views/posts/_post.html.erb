@@ -21,9 +21,13 @@
 
     <div class="controls">
       <% if post.likers.include?(current_user.profile) %>
-        <%= button_to '👍🏻Unlike', post_unlike_path(post), method: :delete, class: 'btn btn--primary' %>
+        <%= button_to post_unlike_path(post), method: :delete, class: 'btn btn--primary' do %>
+          <i class="fa fa-thumbs-down"></i> Unlike
+        <% end %>
       <% else%>
-        <%= button_to '👎🏻Like', post_like_path(post), method: :post, class: 'btn btn--primary' %>
+        <%= button_to post_like_path(post), method: :post, class: 'btn btn--primary' do %>
+          <i class="fa fa-thumbs-up"></i> Like
+        <% end %>
       <% end %>
     </div>
   </p>
