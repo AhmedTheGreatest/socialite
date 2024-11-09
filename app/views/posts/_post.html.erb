@@ -10,7 +10,7 @@
     <% end %>
     
     <% if post.images.attached? %>
-      <div class="post-images">
+      <div class="post__images photo-grid">
         <% post.images.each do |image| %>
           <%= image_tag image.variant(:small) %>
         <% end %>
@@ -19,7 +19,7 @@
     
     <span><em><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes' %></em></span>
 
-    <div class="controls">
+    <div class="post__actions">
       <% if post.likers.include?(current_user.profile) %>
         <%= button_to post_unlike_path(post), method: :delete, class: 'btn btn--primary' do %>
           <i class="fa fa-thumbs-down"></i> Unlike
