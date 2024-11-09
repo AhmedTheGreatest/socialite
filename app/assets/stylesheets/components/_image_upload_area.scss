@@ -1,0 +1,31 @@
+.image-upload-area {
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: var(--space-xs);
+  text-align: center;
+  transition: box-shadow 250ms;
+
+
+  &__text {
+    margin: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+
+  &:active, &:hover {
+    box-shadow: 0 0 0 2px var(--color-glint);
+  }
+
+  &__preview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    gap: var(--space-xs);
+    margin-top: var(--space-xs);
+  }
+
+  &__image_preview {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+  }
+}

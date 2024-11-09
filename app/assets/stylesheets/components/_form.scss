@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: var(--space-xs);
+  gap: var(--space-s);
+  margin-top: 1rem;
 
   &__group {
     flex: 1;
