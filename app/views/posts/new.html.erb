@@ -1,9 +1,7 @@
+<%= link_to posts_path do %>
+  <i class="fa fa-arrow-left"></i> Back
+<% end %><br>
+
 <h1>New post</h1>
 
 <%= render "form", post: @post %>
-
-<br>
-
-<div>
-  <%= link_to "Back to posts", posts_path %>
-</div>

@@ -3,7 +3,7 @@
     <p>
       <strong><%= comment.profile.name %></strong><br>
       <%= comment.body %><br>
-      <small>At <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
+      <small><%= timeago(comment.created_at) %></small>
       
       <% if comment.profile == current_user.profile %>
         <%= link_to 'Edit', edit_post_comment_path(comment.post, comment), data: { turbo_frame: dom_id(comment) } %> |
