@@ -1,2 +1,3 @@
 <%= turbo_stream.prepend 'comments', partial: 'comments/comment', locals: { post: @post, comment: @comment } %>
+<%= turbo_stream.replace 'comment-box', partial: 'comments/form', locals: { post: @post, comment: Comment.new } %>
 <%= turbo_stream.replace 'flash', partial: 'layouts/flash' %>

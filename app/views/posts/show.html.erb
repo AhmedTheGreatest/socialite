@@ -1,8 +1,11 @@
+<%= link_to posts_path do %>
+  <i class="fa fa-arrow-left"></i> Back
+<% end %><br>
+
+
 <%= render @post %>
 
 <div>
-  <%= link_to "Back to posts", posts_path %>
-
   <div class="avatar_container">
     <%= link_to "Edit", edit_post_path(@post), class: 'btn btn--light' %>
     <%= button_to "Delete", @post, method: :delete, class: 'btn btn--light' %>
@@ -10,8 +13,10 @@
 </div>
 <br>
 
-<h3>Comments</h3>
-<%= render 'comments/form', post: @post, comment: Comment.new %>
-<div id="comments">
-  <%= render @comments %>
+<div class="comments-container">
+  <h3>Comments</h3>
+  <%= render 'comments/form', post: @post, comment: Comment.new %>
+  <div id="comments" class="comments">
+    <%= render @comments %>
+  </div>
 </div>
