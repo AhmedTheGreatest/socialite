@@ -1,0 +1,18 @@
+.alert {
+  display: flex;
+  // width: 100%;
+  text-align: center;
+  // position: fixed;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-m);
+  height: var(--space-xxxs);
+
+  &__notice {
+    color: limegreen;
+  }
+
+  &__error {
+    color: red;
+  }
+}
