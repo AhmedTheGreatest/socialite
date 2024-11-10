@@ -11,6 +11,8 @@
 
 // Components
 @import "components/btn";
+@import "components/omniauth_btn";
+@import "components/link";
 @import "components/post";
 @import "components/avatar";
 @import "components/profile";
@@ -21,6 +23,7 @@
 @import "components/comment_box";
 @import "components/profile_list_box";
 @import "components/hidden";
+@import "components/form_divider";
 
 // Layouts
 @import "layouts/container";

@@ -1,0 +1,23 @@
+.form-divider {
+  width: 50%;
+  color: var(--color-dark);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-xxxs);
+  margin-bottom: var(--space-m);
+  font-size: var(--font-size-s);
+
+  &__line {
+    width: 40%;
+    height: 0.8px;
+    background-color: #cccccc;
+  }
+
+  &__text {
+    min-width: 20%;
+    text-align: center;
+    flex: none;
+  }
+}

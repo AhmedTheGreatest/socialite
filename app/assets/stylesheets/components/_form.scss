@@ -29,4 +29,35 @@
       border-color: var(--color-primary);
     }
   }
+
+  &__checkbox {
+    accent-color: var(--color-primary);
+    aspect-ratio: 1 / 1;
+    width: var(--space-l);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: box-shadow 250ms;
+    outline: none;
+    background: var(--color-light);
+    clip-path: circle(55% at 50% 50%);
+    
+    &:focus {
+      box-shadow: 0 0 0 2px var(--color-glint);
+    }
+
+    &--invalid {
+      border-color: var(--color-primary);
+    }
+  }
+
+  &__checkbox_group {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-xs);
+
+    & label {
+      font-weight: bold;
+    }
+  }
 }
