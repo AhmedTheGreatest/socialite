@@ -9,5 +9,9 @@
     padding-right: var(--space-m);
     padding-left: var(--space-m);
     max-width: 65rem;
+
+    &--narrow {
+      max-width: 30rem;
+    }
   }
 }
