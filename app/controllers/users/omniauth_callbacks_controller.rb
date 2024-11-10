@@ -10,7 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @user.persisted?
       # Automatically create Profile for OmniAuth users
-      create_profile(@user, request.env["omniauth.auth"])
+      create_profile(@user, request.env["omniauth.auth"]) unless @user.profile
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "GitHub") if is_navigational_format?
     else
