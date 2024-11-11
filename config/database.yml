@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: socialite_production
-  username: socialite
-  password: <%= ENV["SOCIALITE_DATABASE_PASSWORD"] %>
+  url: <%= Rails.application.credentials.dig(:database_url) %>
