@@ -1,10 +1,10 @@
-<%= form_with(model: profile) do |f| %>
-  <div>
+<%= form_with(model: profile, class: 'form form--no-margin') do |f| %>
+  <div class="form__group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form__input', placeholder: 'Your new name...' %>
   </div>
 
   <div>
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn--primary' %>
   </div>
 <% end %>

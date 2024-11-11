@@ -4,8 +4,27 @@
   width: 1.5rem;
   height: 1.5rem;
 
+  &--medium {
+    width: 2rem;
+    height: auto;
+  }
+
   &--large {
     width: 6rem;
     height: 6rem;
+  }
+
+  &--xl {
+    width: 8rem;
+    height: auto;
+  }
+
+  &--inline {
+    display: inline-block;
+    margin: 0px var(--space-s);
+  }
+
+  &--clickable {
+    cursor: pointer;
   }
 }

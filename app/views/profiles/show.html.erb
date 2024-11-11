@@ -1,12 +1,21 @@
 <div>
-  <%= image_tag @profile.avatar_url, class: 'avatar avatar--large' %>
-  <h1 class="profile_name"><%= @profile.name %></h1>
+
+  <div class="avatar_container avatar_container--centered">
+    <%= image_tag @profile.avatar_url, class: 'avatar avatar--large' %>
+    <%= turbo_frame_tag "#{dom_id(@profile)}_form", class: 'avatar_container' do %>
+      <h1 class="profile_name"><%= @profile.name %></h1>
+      <%= link_to edit_profile_path(@profile), class: 'btn btn--light' do %>
+        <i class="fa fa-pen"></i>
+      <% end %>
+    <% end %>
+  </div>
+
+  <br>
   <!-- Add Profile Bio and Profile Picture -->
   <%= render 'shared/follow_button', profile: @profile %>
 
 
   <div class="posts_container">
-    <h3><%= @profile.name %>'s Posts</h3> 
     <div id="user_posts">
       <%= render @posts %>
     </div>

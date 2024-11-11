@@ -5,6 +5,10 @@
   gap: var(--space-s);
   margin-top: 1rem;
 
+  &--no-margin {
+    margin-top: 0;
+  }
+
   &__group {
     flex: 1;
   }

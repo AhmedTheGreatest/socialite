@@ -1,4 +1,8 @@
-<h1>Edit your Profile</h1>
-<%= image_tag @profile.avatar_url, class: 'avatar avatar--large' %>
+<h1>Edit your Profile</h1><br>
 
-<%= render 'form', profile: @profile %>
+<div class="avatar_container">
+  <%= image_tag @profile.avatar_url, class: 'avatar avatar--large' %>
+  <%= turbo_frame_tag "#{dom_id(@profile)}_form" do %>
+    <%= render 'form', profile: @profile %>
+  <% end %>
+</div>

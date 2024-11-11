@@ -4,5 +4,8 @@
     <%= link_to "Your Feed", posts_path, class: "btn" %>
     <%= link_to "Explore", explore_path, class: "btn" %>
     <%= link_to "New post", new_post_path, class: "btn btn--primary" %>
+    <%= link_to current_profile, class: "alignment--align-content-center-vertical" do %>
+      <%= image_tag current_profile.avatar_url, class: 'avatar avatar--medium avatar--inline' %>
+    <% end %>
   </div>
 </div>
