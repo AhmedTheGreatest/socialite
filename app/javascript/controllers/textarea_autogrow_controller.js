@@ -31,7 +31,6 @@ export default class extends Controller {
   }
 
   autogrow() {
-    console.log("TEST")
     this.element.style.height = "auto" // Force re-print before calculating the scrollHeight value.
     this.element.style.height = `${this.element.scrollHeight}px`
   }

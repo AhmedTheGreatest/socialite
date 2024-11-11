@@ -85,3 +85,5 @@ gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 
 gem "cssbundling-rails", "~> 1.4"
+
+gem "cloudinary", "~> 2.2"

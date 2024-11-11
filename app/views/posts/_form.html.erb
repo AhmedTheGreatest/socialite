@@ -16,7 +16,7 @@
 
   <div class="form__group" data-controller="image-upload" data-image-upload-preview-class="image-upload-area__image_preview">
     <%= form.label :images, "Add Pictures", class: 'hidden' %>
-    <%= form.file_field :images, multiple: true, accept: 'image/png,image/jpg,image/jpeg', class: 'form__input hidden', data: { "image-upload-target": "input" } %>
+    <%= form.file_field :images, multiple: true, accept: 'image/png,image/jpg,image/jpeg', direct_upload: true, class: 'form__input hidden', data: { "image-upload-target": "input" } %>
 
     <div class="image-upload-area" data-action="click->image-upload#openFilePicker">
       <p class="image-upload-area__text">Add pictures</p>
