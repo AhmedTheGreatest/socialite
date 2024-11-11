@@ -11,7 +11,7 @@
 
   <div class="form__group">
     <%= form.label :body, class: 'hidden' %>
-    <%= form.text_area :body, class: 'form__input', placeholder: "What's on your mind?" %>
+    <%= form.text_area :body, class: 'form__input', placeholder: "What's on your mind?", size: 'x5', style:"resize:vertical;", data: { controller: 'textarea-autogrow' } %>
   </div>
 
   <div class="form__group" data-controller="image-upload" data-image-upload-preview-class="image-upload-area__image_preview">
