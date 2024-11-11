@@ -1,0 +1,11 @@
+.comment {
+  display: flex;
+  justify-content: space-between;
+
+  &__actions {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: start;
+    gap: var(--space-xxxs)
+  }
+}
