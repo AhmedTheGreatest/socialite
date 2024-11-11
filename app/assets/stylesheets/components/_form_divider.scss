@@ -9,10 +9,22 @@
   margin-bottom: var(--space-m);
   font-size: var(--font-size-s);
 
+  &--thick {
+    margin-top: var(--space-l);
+    margin-bottom: var(--space-l);
+  }
   &__line {
-    width: 40%;
+    width: 100%;
     height: 0.8px;
     background-color: #cccccc;
+
+    &--thick {
+      height: 5px;
+    }
+    
+    &--primary {
+      background-color: var(--color-primary);
+    }
   }
 
   &__text {

@@ -11,7 +11,7 @@
 
   <div class="form__group">
     <%= form.label :body, class: 'hidden' %>
-    <%= form.text_area :body, class: 'form__input', placeholder: 'Type your text...' %>
+    <%= form.text_area :body, class: 'form__input', placeholder: "What's on your mind?" %>
   </div>
 
   <div class="form__group" data-controller="image-upload" data-image-upload-preview-class="image-upload-area__image_preview">
@@ -27,7 +27,7 @@
   </div>
   </div>
 
-  <div>
-    <%= form.submit nil, class: 'btn btn--primary' %>
+  <div class="alignment--align-content-right">
+    <%= form.submit 'Post', class: 'btn btn--primary' %>
   </div>
 <% end %>

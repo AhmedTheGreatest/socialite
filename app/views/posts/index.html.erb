@@ -3,6 +3,14 @@
   <h1 class="feed__heading">Your Feed</h1>
 
   <div class="feed__posts">
+    <%= render 'form', post: Post.new %>
+
+    <div class="form-divider form-divider--thick">
+      <div class="form-divider__line form-divider__line--thick"></div>
+      <div class="form-divider__text">Explore</div>
+      <div class="form-divider__line form-divider__line--thick"></div>
+    </div>
+
     <% @posts.each do |post| %>
       <%= render post %>
     <% end %>
