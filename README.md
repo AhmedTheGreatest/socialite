@@ -100,7 +100,7 @@ database_url: "your_production_database_url"
 ---
 
 ## Deployment
-![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
+![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)  
 Socialite is deployed and accessible at [https://socialite-qpr1.onrender.com/](https://socialite-qpr1.onrender.com/). The app is hosted on **Render**, while the **PostgreSQL database** is hosted on **Neon**. **Cloudinary** is used for image storage.
 
 ### Additional Notes
