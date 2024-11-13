@@ -1,5 +1,5 @@
 # Socialite
-![Rails](https://img.shields.io/badge/rails-%23CC0000.svg?style=for-the-badge&logo=ruby-on-rails&logoColor=white) ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) [![Hotwire](https://img.shields.io/badge/-Hotwire-333333?style=for-the-badge&logo=hotwire&logoColor=white)](https://hotwire.dev)
+![Rails](https://img.shields.io/badge/rails-%23CC0000.svg?style=for-the-badge&logo=ruby-on-rails&logoColor=white) ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) [![Hotwire](https://img.shields.io/badge/-Hotwire-333333?style=for-the-badge&logo=hotwire&logoColor=white)](https://hotwired.dev)
 
 
 **Socialite** is a social media platform built as part of the final project for The Odin Project curriculum. This app allows users to create profiles, post updates, interact with each other’s content, and manage their own social interactions.
