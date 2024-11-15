@@ -118,3 +118,13 @@ bundle exec rspec
 ```
 
 If running on WSL, make sure `WSL` is set to `true` and `BROWSER` points to your browser.
+
+---
+
+## Future Improvements
+
+Here are some features that I would like to add sometime:
+
+- Update the **color palette** to enhance the visual appeal of the app.  
+- Add an **Account Edit Page** to allow users to update their passwords.  
+ 
